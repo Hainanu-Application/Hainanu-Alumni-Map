@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // use custom marker icons
     L.Icon.Default.prototype.options.iconUrl = '../../../images/leaflet-icons/marker-icon.png';
-    L.Icon.Default.prototype.options.iconRetinaUrl = '../../../images/leaflet-icons/marker-icon-2x.png';
+    L.Icon.Default.prototype.options.iconRetinaUrl = '../../../images/leaflet-icons/marker-icon.png';
 
     // generate map
     var map = L.map('map', {
