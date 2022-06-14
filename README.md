@@ -31,8 +31,12 @@ GitHub 允许从存储库中生成静态网站，本地图使用 [Jekyll](https:
 
 我们建议您将 repo 下载为 zip 文件，并首先使其在本地计算机上运行（请参阅 [SETUP.md](https://github.com/HainanU-Application/HainanU-Alumni-Map/blob/main/SETUP.md) 以获取说明)。
 
-如果您遇到困难，我们很乐意提供帮助：eilo.pengyq@gmail.com
+如果您遇到困难，我们很乐意提供帮助：eilo.pengyq@gmail.com。
 
 ## 如何在我的机器上运行地图？
 
 有关说明，请参阅 [SETUP.md](https://github.com/HainanU-Application/HainanU-Alumni-Map/blob/main/SETUP.mdd)。
+
+## TO DO
+
+- 更换地图源为高德/百度以加快渲染速度
