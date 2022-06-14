@@ -1,0 +1,388 @@
+---
+---
+
+@mixin visuallyhidden {
+  // visually hidden, but have it available for screen readers (h5bp.com)
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+
+@mixin hyphenate {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
+
+html {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.4;
+}
+
+body {
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0 0 0.75em 0;
+}
+
+h1 {
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+a {
+  color: #3fb4ff;
+  text-decoration: none;
+  -webkit-transition: color 100ms ease-out;
+  -o-transition: color 100ms ease-out;
+  transition: color 100ms ease-out;
+
+  &:hover,
+  &:focus {
+    color: #80ceff;
+  }
+}
+
+abbr[title] {
+  text-decoration: none;
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+/* map */
+
+.map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+/* infobanner */
+
+.infobanner {
+  position: fixed;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  bottom: 3vh;
+  z-index: 10;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 11px;
+  line-height: 0;
+  font-weight: bold;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  text-decoration: none !important;
+
+  &:hover,
+  &:focus {
+    .infobanner__redaxo {
+      background: #59bfff;
+    }
+    .infobanner__join {
+      background: #ffd485;
+    }
+  }
+}
+
+.infobanner__logo {
+  width: auto;
+  height: 15px;
+  margin-right: 7px;
+}
+
+.infobanner__join {
+  -webkit-box-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 25px;
+  background: rgb(0,64,152);
+  color: #266d99;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0 15px;
+  -webkit-transition: background 100ms ease-out;
+  -o-transition: background 100ms ease-out;
+  transition: background 100ms ease-out;
+}
+
+.infobanner__heart {
+  font-size: 1.5em;
+  margin-right: 3px;
+  -webkit-transform: translateY(-1px);
+  -ms-transform: translateY(-1px);
+  transform: translateY(-1px);
+}
+
+/* popover */
+
+.popover {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  max-width: 600px;
+  max-height: 100%;
+  background: #fff;
+  border: 2px solid #ffaa0c;
+  opacity: 0;
+  -webkit-transform: translate3d(-50%, calc(-50% + 20px), 0);
+  transform: translate3d(-50%, calc(-50% + 20px), 0);
+  -webkit-transition: all 200ms ease-out;
+  -o-transition: all 200ms ease-out;
+  transition: all 200ms ease-out;
+  z-index: -1;
+}
+
+.popover--active {
+  opacity: 1;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+  transform: translate3d(-50%, -50%, 0);
+  z-index: 100;
+}
+
+.popover__close {
+  position: absolute;
+  z-index: 10;
+  top: 10px;
+  right: 10px;
+  display: block;
+  border: 0;
+  outline: 0 !important;
+  background: transparent;
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    i {
+      background-color: #80ceff;
+    }
+  }
+
+  // cross
+  i {
+    display: block;
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #3fb4ff;
+  }
+  > i {
+    -webkit-transform: translate(-50%, -50%) rotate(45deg);
+    -ms-transform: translate(-50%, -50%) rotate(45deg);
+    transform: translate(-50%, -50%) rotate(45deg);
+    > i {
+      -webkit-transform: translate(-50%, -50%) rotate(90deg);
+      -ms-transform: translate(-50%, -50%) rotate(90deg);
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+  }
+
+  span {
+    @include visuallyhidden;
+  }
+}
+
+.popover__body {
+  -webkit-box-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 40px;
+  margin: 2px;
+  overflow: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  text-align: center;
+}
+
+.popover__title {
+  margin-bottom: 30px;
+}
+
+/* leaflet styles */
+
+.leaflet-bar {
+  border: 2px solid rgba(#fff, 0.5) !important;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.leaflet-bar a {
+  background-color: #3fb4ff;
+  color: #fff;
+  border-bottom-color: #fff;
+
+  &:hover,
+  &:focus {
+    background-color: #87d1ff;
+  }
+}
+
+/* marker cluster styles */
+
+.marker-cluster {
+  color: rgba(#fff, 0.9);
+
+  div {
+    font-size: 14px;
+  }
+}
+
+.marker-cluster-small,
+.marker-cluster-medium,
+.marker-cluster-large {
+  background-color: rgba(#87d1ff, 0.6);
+}
+
+.marker-cluster-small div,
+.marker-cluster-medium div,
+.marker-cluster-large div {
+  background-color: rgba(#3fb4ff, 0.6);
+}
+
+/* leaflet popup content styles */
+
+.leaflet-popup-content {
+  margin: 13px 13px 3px 13px;
+}
+
+.leaflet-popup-content p {
+  margin: 0 0 0.75em 0;
+}
+
+/* user profile */
+
+.user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.user__image {
+  -webkit-box-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  width: 115px;
+}
+
+.user__image-src {
+  display: block;
+  max-width: 100px;
+  max-height: 200px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.user__data {
+  width: 200px;
+}
+
+.user__name {
+  @include hyphenate;
+  padding-right: 10px; // leave room for closing X
+}
+
+.user__bio {
+  @include hyphenate;
+}
+
+.user__links {
+}
+
+.user__links-list {
+  padding: 0;
+  list-style: none;
+}
+
+.user__links-listitem {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 320px) {
+
+  .user__image {
+    width: 90px;
+  }
+
+  .user__image-src {
+    max-width: 75px;
+    max-height: 150px;
+  }
+
+  .user__data {
+    width: 180px;
+  }
+}
+
+/* diverse */
+
+.calltoaction {
+  margin: 20px 0;
+  font-weight: bold;
+  line-height: 1.25;
+}
+
+.legals {
+  margin: 40px 0 -30px 0;
+  padding-top: 10px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 12px;
+  color: #999;
+}
+
+.hainanu-logo {
+  display: inline-block;
+  vertical-align: middle;
+  width: 200px;
+  height: 200px;
+  margin-bottom: 5px;
+}
+
+@media (max-width: 320px) {
+  .hide-xs {
+    @include visuallyhidden;
+  }
+}

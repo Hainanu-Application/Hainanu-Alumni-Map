@@ -1,0 +1,39 @@
+# Configuration
+# https://jekyllrb.com/docs/configuration/
+
+theme: minima
+repository: HainanU-Application/HainanU-Alumni-Map
+plugins: []
+timezone: Asia/Beijing
+
+# SEO
+# https://github.com/jekyll/jekyll-seo-tag
+title: HainanU Alumni Map
+description: 🌴 A map filled with HainanU alumni over the world. Hosted at GitHub, which allows for everyone to add their map entries. Join us!
+
+# Assets
+# https://jekyllrb.com/docs/assets/
+sass:
+    style: compressed
+
+# Collections
+# https://jekyllrb.com/docs/collections/
+collections:
+- directory
+
+# Exclude directories and/or files from the conversion.
+# https://jekyllrb.com/docs/configuration/
+exclude:
+- CONTRIBUTE.md
+- Gemfile
+- Gemfile.lock
+- LICENSE
+- README.md
+- SETUP.md
+- vendor
+
+# Compress HTML in Jekyll
+# http://jch.penibelst.de
+compress_html:
+  clippings: all
+  comments: ["<!-- ", " -->"]

@@ -1,0 +1,194 @@
+---
+layout: compress
+---
+
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}" prefix="og: http://ogp.me/ns#">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+    <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+    <meta name="keywords" content="Hainan University,HainanU,community,cms,people,map,github,leaflet">
+    <meta name="author" content="HainanU-Application">
+
+    <!-- styles -->
+    <link rel="stylesheet" href="{{ '/assets/vendor/leaflet/leaflet.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/vendor/leaflet.markercluster/dist/MarkerCluster.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/vendor/leaflet.markercluster/dist/MarkerCluster.Default.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+
+    <!-- urls -->
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+
+    <!-- icons -->
+    <link rel="apple-touch-icon" sizes="180x198" href="{{ '/icons/apple-touch-icon.png' | relative_url }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ '/icons/favicon.ico' | relative_url }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ '/icons/favicon.ico' | relative_url }}">
+    <link rel="manifest" href="{{ '/icons/manifest.json' | relative_url }}">
+    <link rel="mask-icon" href="{{ '/icons/safari-pinned-tab.svg' | relative_url }}" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- open graph -->
+    <meta property="og:site_name" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}">
+    <meta property="og:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    <meta property="og:image" content="{{ '/icons/SUSTech-Alumni-Map.png' | absolute_url }}">
+    <meta property="og:locale" content="de_DE">
+
+    <!-- JSON LD -->
+    <script type="application/ld+json">
+    [
+        {
+            "@context": "http://schema.org",
+            "@type": "WebSite",
+            "name": "{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}",
+            "publisher": "HainanU-Application",
+            "url": "{{ page.url | absolute_url }}",
+            "description": "{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}",
+            "image": "{{ '/icons/SUSTech-Alumni-Map.png' | absolute_url }}"
+        }
+    ]
+    </script>
+
+    <!-- scripts -->
+    <script src="{{ '/assets/vendor/leaflet/leaflet.js' | relative_url }}"></script>
+    <script src="{{ '/assets/vendor/leaflet.markercluster/dist/leaflet.markercluster.js' | relative_url }}"></script>
+    <script src="{{ '/assets/vendor/leaflet.edgebuffer/src/leaflet.edgebuffer.js' | relative_url }}"></script>
+    <script src="{{ '/assets/plugins/hash/hash.js' | relative_url }}"></script>
+
+
+    <!-- init directory data and items counter -->
+    {% assign directoryData = site.collections | where: "label", "directory" | first %}
+    {% assign itemsCount = 0 %}
+
+
+    <!-- process directory data -->
+    <script>
+    var directory = [
+        {% for entry in site.directory %}
+
+        <!-- id -->
+        <!-- split path to user folder and select id from second to last part -->
+        {% assign parts = entry.id | split: "/" %}
+        {% assign index = parts | size | minus: 2 %}
+        {% assign id = parts[index] | slugify | jsonify %}
+
+        <!-- name -->
+        {% assign name = entry.name | strip_html | truncate: 100 | escape_once | jsonify %}
+
+        <!-- latitude -->
+        {% assign latitude = entry.latitude | strip_html | escape_once %}
+        {% if latitude.size > 0 %}
+            {% assign latitude = latitude | jsonify %}
+        {% else %}
+            {% continue %}
+        {% endif %}
+
+        <!-- longitude -->
+        {% assign longitude = entry.longitude | strip_html | escape_once %}
+        {% if longitude.size > 0 %}
+            {% assign longitude = longitude | jsonify %}
+        {% else %}
+            {% continue %}
+        {% endif %}
+
+        <!-- bio -->
+        {% assign bio = entry.bio | strip_html | truncate: 300 | escape_once | jsonify %}
+
+        <!-- image -->
+        {% assign image = entry.image | strip_html %}
+        {% unless image contains 'http://' or image contains 'https://' %}
+
+            <!-- split path into parts and reassemble to get clean path (which jekyll does not provide) -->
+            {% assign parts = entry.id | split: "/" %}
+            {% assign path = "" %}
+            {% for part in parts %}
+                {% if part != "" and forloop.last != true %}
+                    {% capture path %}{{ path }}/{{ part }}{% endcapture %}
+                {% endif %}
+            {% endfor %}
+
+            <!-- set up complete image path (without leading '/') -->
+            {% assign imagePath = path | slice: 1, 99999 | append: "/" | append: image %}
+
+            <!-- create internal path stored by jeykll and check if image exists -->
+            {% assign checkPath = imagePath | prepend: "_" %}
+            {% assign imageObject = directoryData.files | where: "path", checkPath | first %}
+
+            <!-- assign final image path -->
+            {% if imageObject %}
+                {% assign image = imagePath %}
+            {% else %}
+                {% assign image = "" %}
+            {% endif %}
+        {% endunless %}
+        {% assign image = image | jsonify %}
+
+        <!-- links -->
+        {% assign links = entry.links | jsonify | escape_once | replace: "&quot;", '"' %}
+
+        <!-- increment counter -->
+        {% assign itemsCount = itemsCount | plus: 1 %}
+
+        <!-- output -->
+        {
+            'id': {{ id }},
+            'name': {{ name }},
+            'latitude': {{ latitude }},
+            'longitude': {{ longitude }},
+            'bio': {{ bio }},
+            'image': {{ image }},
+            'links': {{ links }}
+        }{% unless forloop.last == true %},{% endunless %}
+        {% endfor %}
+    ];
+    </script>
+
+
+    <script src="{{ '/assets/js/script.js' | relative_url }}"></script>
+
+</head>
+
+<body>
+
+    <!-- map container -->
+    <div class="map" id="map"></div>
+
+
+    <!-- info banner at bottom on site, click toggles popover -->
+    <a class="infobanner" id="popover-open">
+        <div class="infobanner__join">
+            <span class="infobanner__heart">♥</span>
+            <span>Join the Map!</span>
+        </div>
+    </a>
+
+
+    <!-- popover -->
+    <div class="popover" id="popover">
+        <button id="popover-close" class="popover__close" type="button"><span>Close</span><i><i></i></i></button>
+        <div class="popover__body">
+
+            <h1 class="popover__title">
+                <img class="hainanu-logo" src="{{ '/assets/images/HainanU.png' | relative_url }}" alt="HainanU"><br>
+                HainanU Alumni Map
+            </h1>
+
+            <p>Any of the <strong>{{ itemsCount }}</strong> location markers on this map represents an alumnus or alumna who’s willing to share his or her experience in application, which might help HainanU students in the future.</p>
+            <p>The project is hosted at <a href="https://github.com/HainanU-Application/HainanU-Alumni-Map" target="_blank" rel="noopener noreferrer">GitHub</a>, which allows for everyone to <strong>add and manage their map entries by themselves</strong>! This is pretty cool. If you like to join the map, just follow the link and find all information:</p>
+
+            <div class="calltoaction">
+                <p>👉 <a href="https://github.com/HainanU-Application/HainanU-Alumni-Map/tree/main/_directory" target="_blank" rel="noopener noreferrer">Learn how to manage your marker!</a></p>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
