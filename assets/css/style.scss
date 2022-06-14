@@ -106,7 +106,7 @@ abbr[title] {
       background: #59bfff;
     }
     .infobanner__join {
-      background: #ffd485;
+      background: whitesmoke;
     }
   }
 }
@@ -129,7 +129,7 @@ abbr[title] {
   align-items: center;
   height: 25px;
   background: rgb(0,64,152);
-  color: #266d99;
+  color: black;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   padding: 0 15px;
@@ -139,6 +139,7 @@ abbr[title] {
 }
 
 .infobanner__heart {
+  color: red;
   font-size: 1.5em;
   margin-right: 3px;
   -webkit-transform: translateY(-1px);
