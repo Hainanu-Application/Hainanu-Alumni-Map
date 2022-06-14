@@ -1,4 +1,4 @@
-# HainanU Alumni Map | 海南大学校友地图
+# 海南大学校友地图 | HainanU Alumni Map
 
 一张满是海南大学校友的地图，他们愿意为海南大学的学生提供帮助。 本地图托管在 [GitHub](https://github.com/HainanU-Application/HainanU-Alumni-Map)，欢迎校友添加地图条目，加入我们！
 
@@ -58,7 +58,7 @@ longitude: 110.3395963223301
 bio: "Hainan University"
 
 # 图片或头像
-# 提供当前文件夹中的图像文件h
+# 提供当前文件夹中的图像文件或者图像地址
 # 应该是正方形的，大小约为 200-300 像素！
 image: HainanU.png
 
