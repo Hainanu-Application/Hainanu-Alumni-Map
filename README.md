@@ -17,7 +17,59 @@
 
 ## 如何添加和管理您的数据？
 
-您可以将标记添加到地图并自行管理数据，**了解[管理您数据的三种方式](https://github.com/HainanU-Application/HainanU-Alumni-Map/tree/main/_directory)！** 🚀
+您可以将通过如下**两种方式**将您的数据添加到地图并自行管理🚀
+
+### 1. 提交 pull request
+
+__这是最好的选择：__ Fork repo，添加或更新您的数据并发送pull request。 完成合并后，它将在地图上显示！ 💯
+
+👉 你知道你不需要使用 Git 来添加你的条目吗？ GitHub在其网站上提供了所有工具，您可以立即开始使用它们 ，请参阅[操作方法：通过GitHub网站添加您的数据（Powerd by REDAXO）](https://github.com/HainanU-Application/HainanU-Alumni-Map/blob/main/_directory/howto-add-entry-via-github.md)。
+
+### 2. 联系我们
+
+❤️如果您根本没有 GitHub 帐户，请将您的数据发送给我们（请务必按照如下格式），__Email:__ eilo.pengyq@gmail.com
+
+#### 数据格式
+
+该地图需要您的姓名或昵称以及您的地理位置，其他一切都是可选的。 当然，我们都想了解更多关于您的信息，也许还会看到您的照片！ 但是否提供完全取决于您！
+
+创建以您名字命名的文件夹（拼音或英文），并包含`data.yml`文件以及您的照片和头像，**目录树示例如下**。
+
+![image-20220614234424552](image-20220614234424552.png)
+
+其中**`data.yml`模板如下**，**您只需要修改成您的数据即可**。
+
+```yaml
+---
+# 名称（必填）
+# 可能是您的真实姓名或昵称
+name: Home
+
+# 地理位置（必填）
+# 按位数提供您喜欢的详细程度（如 50.107811 或 50.11）
+# 您可以使用诸如 openstreetmap.org 之类的服务来查找您的地理位置
+latitude: 20.059876651066645
+longitude: 110.3395963223301
+
+
+# 描述你自己、例如去向或者工作单位以为校友提供帮助
+# 若无博客地址，请在此处写明您的邮箱使得校友可以联系到您
+# 最多应为 300 个字符。 没有标记或换行符！
+bio: "Hainan University"
+
+# 图片或头像
+# 提供当前文件夹中的图像文件
+# 应该是正方形的，大小约为 200-300 像素！
+image: HainanU.png
+
+# 链接
+# 一个或多个指向您的网站、您的 github 个人资料、twitter、facebook 等的链接。
+# 最多4个链接
+links:
+- https://ha.hainanu.edu.cn/
+- http://en.hainanu.edu.cn/
+---
+```
 
 ## 地图的用途？
 

@@ -52,6 +52,4 @@ Add a title and a description. And finally create your pull request:
 
 ![Screenshot 10](https://raw.githubusercontent.com/FriendsOfREDAXO/community/assets/howto-github/howto-github_10.png)
 
-This is it, thanks for your entry!
-
-🚀
+This is it, thanks for your entry!🚀

@@ -102,11 +102,9 @@ abbr[title] {
 
   &:hover,
   &:focus {
-    .infobanner__redaxo {
-      background: #59bfff;
-    }
     .infobanner__join {
       background: whitesmoke;
+      color: black;
     }
   }
 }
@@ -139,7 +137,7 @@ abbr[title] {
 }
 
 .infobanner__heart {
-  color: red;
+  color: white;
   font-size: 1.5em;
   margin-right: 3px;
   -webkit-transform: translateY(-1px);
