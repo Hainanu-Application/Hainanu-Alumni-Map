@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
     else {
         // Carto maps (limited to 75.000 requests)
         var mapAttribution = '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attribution">CARTO</a>';
-        var mapUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}@2x.png';
+        var mapUrl = 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/{style}/{z}/{x}/{y}@2x.png';
         var tiles = L.tileLayer(mapUrl, {style: 'rastertiles/voyager_labels_under', attribution: mapAttribution});
     }
 
