@@ -4,7 +4,7 @@
 
 👉 __https://hainanu-application.github.io/Hainanu-Alumni-Map/__
 
-![image-20220614214207613](https://cdn.jsdelivr.net/gh/peng-yq/Gallery/img/202206142231559.png)
+![image-20220615105454068](https://cdn.jsdelivr.net/gh/peng-yq/Gallery/img/202206151054624.png)
 
 上面的屏幕截图显示了校友条目的外观。 您可以添加自己的头像、描述以及博客，这太棒了！ 看，这是[海南大学的链接](https://hainanu-application.github.io/Hainanu-Alumni-Map/#home)。
 
