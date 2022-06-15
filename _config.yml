@@ -2,13 +2,13 @@
 # https://jekyllrb.com/docs/configuration/
 
 theme: minima
-repository: HainanU-Application/HainanU-Alumni-Map
+repository: Hainanu-Application/Hainanu-Alumni-Map
 plugins: []
 timezone: Asia/Beijing
 
 # SEO
 # https://github.com/jekyll/jekyll-seo-tag
-title: 海南大学校友地图 | HainanU Alumni Map 
+title: 海南大学校友地图 | Hainanu Alumni Map 
 description: 🌴 A map filled with HainanU alumni over the world. Hosted at GitHub, which allows for everyone to add their map entries. Join us!
 
 # Assets

@@ -2,11 +2,11 @@
 
 一张满是海南大学校友的地图，他们愿意为海南大学的学生提供帮助。 本地图托管在 [GitHub](https://github.com/HainanU-Application/HainanU-Alumni-Map)，欢迎校友添加地图条目，加入我们！
 
-👉 __https://hainanu-application.github.io/HainanU-Alumni-Map/__
+👉 __https://hainanu-application.github.io/Hainanu-Alumni-Map/__
 
 ![image-20220614214207613](https://cdn.jsdelivr.net/gh/peng-yq/Gallery/img/202206142231559.png)
 
-上面的屏幕截图显示了校友条目的外观。 您可以添加自己的头像、描述以及博客，这太棒了！ 看，这是[海南大学的链接](https://hainanu-application.github.io/HainanU-Alumni-Map/#home)。
+上面的屏幕截图显示了校友条目的外观。 您可以添加自己的头像、描述以及博客，这太棒了！ 看，这是[海南大学的链接](https://hainanu-application.github.io/Hainanu-Alumni-Map/#home)。
 
 ## 致谢及开源证书
 
@@ -23,7 +23,7 @@
 
 __这是最好的选择：__ Fork repo，添加或更新您的数据并发送pull request。 完成合并后，它将在地图上显示！ 💯
 
-👉 你知道你不需要使用 Git 来添加你的条目吗？ GitHub在其网站上提供了所有工具，您可以立即开始使用它们 ，请参阅[操作方法：通过GitHub网站添加您的数据（Powerd by REDAXO）](https://github.com/HainanU-Application/HainanU-Alumni-Map/blob/main/_directory/howto-add-entry-via-github.md)。
+👉 你知道你不需要使用 Git 来添加你的条目吗？ GitHub在其网站上提供了所有工具，您可以立即开始使用它们 ，请参阅[操作方法：通过GitHub网站添加您的数据（Powerd by REDAXO）](https://github.com/Hainanu-Application/Hainanu-Alumni-Map/blob/main/_directory/howto-add-entry-via-github.md)。
 
 ### 2. 联系我们
 
@@ -81,13 +81,13 @@ GitHub 允许从存储库中生成静态网站，本地图使用 [Jekyll](https:
 
 ## 我该如何改进这个网站？
 
-我们建议您将 repo 下载为 zip 文件，并首先使其在本地计算机上运行（请参阅 [SETUP.md](https://github.com/HainanU-Application/HainanU-Alumni-Map/blob/main/SETUP.md) 以获取说明)。
+我们建议您将 repo 下载为 zip 文件，并首先使其在本地计算机上运行（请参阅 [SETUP.md](https://github.com/Hainanu-Application/Hainanu-Alumni-Map/blob/main/SETUP.md) 以获取说明)。
 
 如果您遇到困难，我们很乐意提供帮助：eilo.pengyq@gmail.com。
 
 ## 如何在我的机器上运行地图？
 
-有关说明，请参阅 [SETUP.md](https://github.com/HainanU-Application/HainanU-Alumni-Map/blob/main/SETUP.mdd)。
+有关说明，请参阅 [SETUP.md](https://github.com/Hainanu-Application/Hainanu-Alumni-Map/blob/main/SETUP.mdd)。
 
 ## TO DO
 
