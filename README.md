@@ -1,4 +1,4 @@
-# 海南大学校友地图 | HainanU Alumni Map
+# 海南大学校友地图 | Hainanu Alumni Map
 
 一张满是海南大学校友的地图，他们愿意为海南大学的学生提供帮助。 本地图托管在 [GitHub](https://github.com/HainanU-Application/HainanU-Alumni-Map)，欢迎校友添加地图条目，加入我们！
 
